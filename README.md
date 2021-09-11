@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Combinatorial Optimization 2020-2021
 
 You can use the [editor on GitHub](https://github.com/pedrojcd/pedrojcd.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
