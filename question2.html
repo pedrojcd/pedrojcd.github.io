@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Assignment 1 Combinatorial Optimization</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <script src="scripts.js"></script>
+</head>
+<body>
+<!-- -->
+<!--UTILITY FUNCTIONS-->
+<!-- -->
+
+<div id="util_functions_div_id" class="container">
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light justify-content-center">
+            <!--            <div class="collapse navbar-collapse">-->
+            <!--                <ul class="nav navbar-nav">-->
+            <!--                    <li class="nav-item dropdown">-->
+            <!--                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"-->
+            <!--                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+            <!--                            Switch assignment-->
+            <!--                        </a>-->
+            <!--                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+            <!--                            <a class="dropdown-item active" href="#">Computer Assignment 1</a>-->
+            <!--                            <a class="dropdown-item" href="instructionsAssignment2.html">Computer Assignment 2</a>-->
+            <!--                        </div>-->
+            <!--                    </li>-->
+            <!--                </ul>-->
+            <!--            </div>-->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="instructionsAssignment1.html">Instructions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="question1.html">Exercise 1</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Exercise 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="question3.html">Exercise 3</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="question4.html">Exercise 4</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="jumbotron text-center">
+            <h1>Combinatorial Optimization 2020-2021</h1>
+            <h2>Exercise 2</h2>
+        </div>
+    </div>
+
+
+    <form id="my_form">
+        <div class="container">
+            <hr>
+            <h4>MIP with 6 depots/clients</h4>
+            <hr>
+
+            <h6>Question 1</h6>
+            <p>
+                For the instance with 6 depots/clients, state the optimal MIP objective value.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_1_ip_val_6_id_"
+                       name="_num_auto_decimals_2_question_1_ip_val_6"
+                       value="0" min="-Infinity"
+                       max="Infinity" step="0.01"
+                       required=>
+            </div>
+            <br>
+
+            <h6>Question 2</h6>
+            <p>
+                For the instance with 6 depots/clients, state the x-matrix of the optimal MIP
+                solution. Your answer should be a numeric 6 x 6 matrix.
+            </p>
+            <div class="form-group">
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_2_ip_sol_x_6_id__shadow"
+                      required
+                      oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_2_ip_sol_x_6_id__shadow','_numarea_manual_decimals_2_question_2_ip_sol_x_6_id_','_numarea_manual_decimals_2_question_2_ip_sol_x_6_id__label',6,6,2)"></textarea>
+                <p>The parsed result is:</p>
+                <textarea class="form-control" rows="5"
+                          id="_numarea_manual_decimals_2_question_2_ip_sol_x_6_id_"
+                          name="_numarea_manual_decimals_2_question_2_ip_sol_x_6"
+                          readonly></textarea>
+                <label for="_numarea_manual_decimals_2_question_2_ip_sol_x_6_id_"
+                       id="_numarea_manual_decimals_2_question_2_ip_sol_x_6_id__label"></label>
+            </div>
+
+            <h6>Question 3</h6>
+            <p>
+                For the instance with 6 depots/clients, state the y-matrix of the optimal MIP
+                solution. Your answer should be a numeric 6 x 6 matrix.
+            </p>
+            <div class="form-group">
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_3_ip_sol_y_6_id__shadow"
+                      required
+                      oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_3_ip_sol_y_6_id__shadow','_numarea_manual_decimals_2_question_3_ip_sol_y_6_id_','_numarea_manual_decimals_2_question_3_ip_sol_y_6_id__label',6,6,2)"></textarea>
+                <p>The parsed result is:</p>
+                <textarea class="form-control" rows="5"
+                          id="_numarea_manual_decimals_2_question_3_ip_sol_y_6_id_"
+                          name="_numarea_manual_decimals_2_question_3_ip_sol_y_6"
+                          readonly></textarea>
+                <label for="_numarea_manual_decimals_2_question_3_ip_sol_y_6_id_"
+                       id="_numarea_manual_decimals_2_question_3_ip_sol_y_6_id__label"></label>
+            </div>
+
+
+            <h6>Question 4</h6>
+            <p>
+                For the instance with 6 depots/clients, state the running time needed to solve the
+                MIP to optimality.
+                Round your answer to 2 decimal places.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_4_ip_time_6_id_"
+                       name="_num_auto_decimals_2_question_4_ip_time_6"
+                       value="0" min="-Infinity"
+                       max="Infinity" step="0.01"
+                       required=>
+            </div>
+            <br>
+
+            <h6>Question 5</h6>
+            <p>
+                For the instance with 6 depots/clients, state the number of nodes needed to solve
+                the MIP to optimality.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_5_ip_nodes_6_id_"
+                       name="_num_auto_decimals_2_question_5_ip_nodes_6"
+                       value="0" min="-Infinity"
+                       max="Infinity" step="1"
+                       required=>
+            </div>
+            <br>
+
+            <hr>
+            <h4>LP with 6 depots/clients</h4>
+            <hr>
+
+            <h6>Question 6</h6>
+            <p>For the instance with 6 depots/clients, state the optimal LP relaxation objective
+                value.
+                If needed, round your answer to 2 decimal places.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_6_lp_val_6_id_"
+                       name="_num_auto_decimals_2_question_6_lp_val_6"
+                       value="0" min="-Infinity"
+                       max="Infinity" step="0.01"
+                       required>
+            </div>
+            <br>
+
+            <h6>Question 7</h6>
+            <p>
+                For the instance with 6 depots/clients, state the running time needed to solve the
+                LP relaxation to optimality.
+                Round your answer to 2 decimal places.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_7_lp_time_6_id_"
+                       name="_num_auto_decimals_2_question_7_lp_time_6"
+                       value="0" min="-Infinity"
+                       max="Infinity" step="0.01"
+                       required>
+            </div>
+            <br>
+        </div>
+
+        <div class="container">
+            <hr>
+            <h4>MIP with 7 depots/clients</h4>
+            <hr>
+
+            <h6>Question 8</h6>
+            <p>
+                For the instance with 7 depots/clients, state the optimal MIP objective value.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_8_ip_val_7_id_"
+                       name="_num_auto_decimals_2_question_8_ip_val_7"
+                       value="0" min="-Infinity"
+                       max="Infinity" step="0.01"
+                       required>
+            </div>
+            <br>
+
+            <h6>Question 9</h6>
+            <p>
+                For the instance with 7 depots/clients, state the x-matrix of the optimal MIP
+                solution. Your answer should be a numeric 7 x 7 matrix.
+            </p>
+            <div class="form-group">
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_9_ip_sol_x_7_id__shadow"
+                      required
+                      oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_9_ip_sol_x_7_id__shadow','_numarea_manual_decimals_2_question_9_ip_sol_x_7_id_','_numarea_manual_decimals_2_question_9_ip_sol_x_7_id__label',7,7,2)"></textarea>
+                <p>The parsed result is:</p>
+                <textarea class="form-control" rows="5"
+                          id="_numarea_manual_decimals_2_question_9_ip_sol_x_7_id_"
+                          name="_numarea_manual_decimals_2_question_9_ip_sol_x_7"
+                          readonly="true"></textarea>
+                <label for="_numarea_manual_decimals_2_question_9_ip_sol_x_7_id_"
+                       id="_numarea_manual_decimals_2_question_9_ip_sol_x_7_id__label"></label>
+            </div>
+
+            <h6>Question 10</h6>
+            <p>
+                For the instance with 7 depots/clients, state the y-matrix of the optimal MIP
+                solution. Your answer should be a numeric 7 x 7 matrix.
+            </p>
+            <div class="form-group">
+            <textarea class="form-control" rows="5"
+                      id="_numarea_manual_decimals_2_question_10_ip_sol_y_7_id__shadow"
+                      required
+                      oninput="updateTextAreaAndLabel('_numarea_manual_decimals_2_question_10_ip_sol_y_7_id__shadow','_numarea_manual_decimals_2_question_10_ip_sol_y_7_id_','_numarea_manual_decimals_2_question_10_ip_sol_y_7_id__label',7,7,2)"></textarea>
+                <p>The parsed result is:</p>
+                <textarea class="form-control" rows="5"
+                          id="_numarea_manual_decimals_2_question_10_ip_sol_y_7_id_"
+                          name="_numarea_manual_decimals_2_question_10_ip_sol_y_7"
+                          readonly="true"></textarea>
+                <label for="_numarea_manual_decimals_2_question_10_ip_sol_y_7_id_"
+                       id="_numarea_manual_decimals_2_question_10_ip_sol_y_7_id__label"></label>
+            </div>
+        </div>
+
+        <div class="container">
+            <hr>
+            <h4>LP with 7 depots/clients</h4>
+            <hr>
+
+            <h6>Question 11</h6>
+            <p>
+                For the instance with 7 depots/clients, state the optimal LP relaxation objective
+                value.
+                If needed, round your answer to 2 decimal places.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="lp_time_7"
+                       name="_num_auto_decimals_2_question_11_lp_val_7"
+                       value="0" min="-Infinity"
+                       max="Infinity" step="0.01"
+                       required>
+            </div>
+            <br>
+        </div>
+
+        <div class="container">
+            <hr>
+            <h4>MIP with 8 depots/clients</h4>
+            <hr>
+
+            <h6>Question 12</h6>
+            <p>
+                For the instance with 8 depots/clients, state the best found lower bound for the
+                optimal MIP objective value.
+                If needed, round your answer to 2 decimal places.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_12_ip_lower_bound_8_id"
+                       name="_num_manual_decimals_2_question_12_lb_8"
+                       value="0"
+                       min="-Infinity" max="Infinity" step="0.01" required>
+            </div>
+            <br>
+
+            <h6>Question 13</h6>
+            <p>
+                For the instance with 8 depots/clients, state the best found upper bound for the
+                optimal MIP objective value.
+                If needed, round your answer to 2 decimal places.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_12_ip_upper_bound_8_id"
+                       name="_num_manual_decimals_2_question_13_ub_8"
+                       value="0"
+                       min="-Infinity" max="Infinity" step="0.01" required>
+            </div>
+        </div>
+
+        <div class="container">
+            <hr>
+            <h4>LP with 8 depots/clients</h4>
+            <hr>
+
+            <h6>Question 14</h6>
+            <p>
+                For the instance with 8 depots/clients, state the optimal LP relaxation objective
+                value.
+                If needed, round your answer to 2 decimal places.
+            </p>
+            <div class="input-group">
+                <input type="number" class="form-control"
+                       id="_num_auto_decimals_2_question_14_lp_val_8_id"
+                       name="_num_auto_decimals_2_question_14_lp_val_8"
+                       value="0"
+                       min="-Infinity" max="Infinity" step="0.01" required>
+            </div>
+        </div>
+
+        <div class="container">
+            <hr>
+            <h4>Theory</h4>
+            <hr>
+
+            <h6>Question 15</h6>
+            <p>
+                Based on the three instances and the relevant theory, as the number of
+                depots/clients increases by one the number of nodes needed to solve the MIP problem
+                seems to be:
+            </p>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_11_time_id___ans_1"
+                       name="_mc_auto_question_15_nodes"
+                       value="Decreasing faster than a linear function.">
+                <label for="_mc_auto_question_11_time_id___ans_1">Decreasing faster than a linear
+                    function.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_11_time_id___ans_2"
+                       name="_mc_auto_question_15_nodes"
+                       value="Linearly decreasing.">
+                <label for="_mc_auto_question_11_time_id___ans_2">Linearly decreasing</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_11_time_id___ans_3"
+                       name="_mc_auto_question_15_nodes"
+                       value="Decreasing slower than a linear function.">
+                <label for="_mc_auto_question_11_time_id___ans_3">Decreasing slower than a linear
+                    function.</label>
+            </div>
+            <div class="radio">
+                <input
+                        type="radio"
+                        id="_mc_auto_question_11_time_id___ans_4"
+                        name="_mc_auto_question_15_nodes"
+                        value="Practically constant."
+                        checked>
+                <label for="_mc_auto_question_11_time_id___ans_4">Practically constant.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="_mc_auto_question_11_time_id___ans_5"
+                       name="_mc_auto_question_15_nodes"
+                       value="Increasing slower than a linear function.">
+                <label for="_mc_auto_question_11_time_id___ans_5">Increasing slower than a linear
+                    function.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" value="Linearly increasing." ,
+                       id="_mc_auto_question_11_time_id___ans_6"
+                       name="_mc_auto_question_15_nodes">
+                <label for="_mc_auto_question_11_time_id___ans_6">Linearly increasing.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" value="Increasing faster than a linear function."
+                       id="_mc_auto_question_11_time_id___ans_7"
+                       name="_mc_auto_question_15_nodes">
+                <label for="_mc_auto_question_11_time_id___ans_7">Increasing faster than a linear
+                    function.</label>
+            </div>
+            <div class="radio">
+                <input type="radio" value="None of the above."
+                       id="_mc_auto_question_11_time_id___ans_8"
+                       name="_mc_auto_question_15_nodes">
+                <label for="_mc_auto_question_11_time_id___ans_8">None of the above</label>
+            </div>
+            <br>
+
+            <h6>Question 16</h6>
+            <p>
+                Based on the three instances and the relevant theory, as the number of
+                depots/clients increases by one the running time needed to solve LP relaxation seems
+                to be:
+            </p>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_15_time_id___ans_1"
+                       name="_mc_auto_question_16_time"
+                       value="Decreasing faster than a linear function.">
+                <label for="_mc_auto_question_15_time_id___ans_1">Decreasing faster than a linear
+                    function.</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_15_time_id___ans_2"
+                       name="_mc_auto_question_16_time"
+                       value="Linearly decreasing.">
+                <label for="_mc_auto_question_15_time_id___ans_2">Linearly decreasing</label>
+            </div>
+            <div class="radio">
+                <input type="radio"
+                       id="_mc_auto_question_15_time_id___ans_3"
+                       name="_mc_auto_question_16_time"
+                       value="Decreasing slower than a linear function.">
+                <label for="_mc_auto_question_15_time_id___ans_3">Decreasing slower than a linear
+                    function.</label>
+            </div>
+            <div class="radio">
+                <input
+                        type="radio"
+                        id="_mc_auto_question_15_time_id___ans_4"
+                        name="_mc_auto_question_16_time"
+                        value="Practically constant."
+                        checked>
+                <label for="_mc_auto_question_15_time_id___ans_4">Practically constant</label>
+            </div>
+            <div class="radio">
+                <input type="radio" id="_mc_auto_question_15_time_id___ans_5"
+                       name="_mc_auto_question_16_time"
+                       value="Increasing slower than a linear function.">
+                <label for="_mc_auto_question_15_time_id___ans_5">Increasing slower than a linear
+                    function</label>
+            </div>
+            <div class="radio">
+                <input type="radio" value="Linearly increasing."
+                       id="_mc_auto_question_15_time_id___ans_6"
+                       name="_mc_auto_question_16_time">
+                <label for="_mc_auto_question_15_time_id___ans_6">Linearly increasing</label>
+            </div>
+            <div class="radio">
+                <input type="radio" value="Increasing faster than a linear function."
+                       id="_mc_auto_question_15_time_id___ans_7"
+                       name="_mc_auto_question_16_time">
+                <label for="_mc_auto_question_15_time_id___ans_7">Increasing faster than a linear
+                    function</label>
+            </div>
+            <div class="radio">
+                <input type="radio" value="None of the above."
+                       id="_mc_auto_question_15_time_id___ans_8"
+                       name="_mc_auto_question_16_time">
+                <label for="_mc_auto_question_15_time_id___ans_8">None of the above</label>
+            </div>
+            <br>
+        </div>
+    </form>
+    <div class="container">
+        <button type="submit" class="btn btn-primary btn-lg btn-block handin-btn"
+                onclick="download_file('Exercise2')">
+            Download Form
+        </button>
+    </div>
+    <br>
+</div>
+</body>
+</html>
