@@ -368,11 +368,34 @@
       border-radius: 4px;
       background: rgba(255,255,255,0.02);
       transition: all 0.25s;
+      cursor: pointer;
+      position: relative;
     }
-    .t-card:hover { border-color: rgba(200,150,62,0.3); background: rgba(200,150,62,0.04); transform: translateY(-2px); }
+    .t-card:hover { border-color: rgba(200,150,62,0.3); background: rgba(200,150,62,0.04); }
     .t-role { font-size: 0.72rem; color: var(--amber); letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Mono', monospace; margin-bottom: 0.5rem; }
     .t-course { font-family: 'Cormorant Garant', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 0.3rem; }
     .t-years { font-size: 0.78rem; color: var(--muted); }
+    .t-desc {
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: none;
+    }
+    .t-desc.open { display: block; }
+    .t-indicator {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.4rem;
+      color: var(--amber);
+      font-size: 1.1rem;
+      line-height: 1;
+      transition: transform 0.25s;
+      pointer-events: none;
+    }
+    .t-card.open .t-indicator { transform: rotate(45deg); }
 
     /* ── CONFERENCES ── */
     #conferences { background: var(--navy-mid); border-top: 1px solid rgba(200,150,62,0.1); }
@@ -421,6 +444,7 @@
     }
     .lang-name { font-size: 0.9rem; color: var(--white); }
     .lang-level { font-size: 0.75rem; color: var(--muted); }
+    .lang-item > div { width: 100%; }
     .lang-bar { width: 100%; height: 2px; background: rgba(255,255,255,0.08); border-radius: 2px; margin-top: 0.4rem; overflow: hidden; }
     .lang-fill { height: 100%; background: linear-gradient(90deg, var(--amber), var(--amber-lt)); border-radius: 2px; transition: width 1.5s ease; }
 
@@ -635,6 +659,7 @@
     <h2 class="section-title reveal">Education &amp; <em style="font-family:'Cormorant Garant',serif;font-style:italic;">Experience</em></h2>
     <div class="divider reveal"></div>
 
+    <div class="skill-group-title reveal" style="margin-bottom:1.8rem">Education</div>
     <div class="timeline">
       <div class="tl-item reveal">
         <div class="tl-date">Sept 2021 – Jan 2026</div>
@@ -644,15 +669,6 @@
           Topic: <em>Algorithms for Railway Timetabling</em><br/>
           Supervisors: Prof. Dr. Dennis Huisman, Prof. Dr. Marie Schmidt, Dr. Luuk Veelenturf<br/>
           Affiliations: Erasmus Center for Optimization of Public Transports · Nederlandse Spoorwegen
-        </div>
-      </div>
-
-      <div class="tl-item reveal">
-        <div class="tl-date">Sept – Dec 2024</div>
-        <div class="tl-title">Visiting Researcher</div>
-        <div class="tl-sub">ETH Zurich · Institute for Transport Planning and Systems · Zurich, Switzerland</div>
-        <div class="tl-body">
-          Supervisor: Prof. Dr. Francesco Corman
         </div>
       </div>
 
@@ -677,8 +693,20 @@
         <div class="tl-title">Study Abroad — Economics</div>
         <div class="tl-sub">Nanyang Technological University · Singapore</div>
       </div>
+    </div>
 
-      <div class="tl-item reveal" style="margin-top:3rem">
+    <div class="skill-group-title reveal" style="margin-top:4rem;margin-bottom:1.8rem">Experience</div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-date">Sept – Dec 2024</div>
+        <div class="tl-title">Visiting Researcher</div>
+        <div class="tl-sub">ETH Zurich · Institute for Transport Planning and Systems · Zurich, Switzerland</div>
+        <div class="tl-body">
+          Supervisor: Prof. Dr. Francesco Corman
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
         <div class="tl-date">2020 – 2021</div>
         <div class="tl-title">Research Assistant</div>
         <div class="tl-sub">Maastricht University — School of Business &amp; Economics</div>
@@ -697,54 +725,74 @@
 
     <div class="teaching-grid">
       <div class="t-card reveal">
+        <span class="t-indicator">+</span>
         <div class="t-role">Coordinator</div>
         <div class="t-course">Advanced Programming</div>
         <div class="t-years">2025</div>
+        <div class="t-desc">Advanced object-oriented and functional programming in Java, building on introductory fundamentals. Covers interfaces, abstract classes, inheritance, generics, and modern language features. Students develop practical skills through weekly assignments graded via automated feedback.</div>
       </div>
       <div class="t-card reveal">
+        <span class="t-indicator">+</span>
         <div class="t-role">Supervisor</div>
         <div class="t-course">Seminar: Case Studies in Logistics</div>
         <div class="t-years">2021 – 2025</div>
+        <div class="t-desc">Team-based seminar in which student groups tackle a complex real-world logistics problem presented by an external company. Applies operations research techniques — such as vehicle routing, public transit planning, or inventory control — to a new industrial case each year.</div>
       </div>
       <div class="t-card reveal">
+        <span class="t-indicator">+</span>
         <div class="t-role">Supervisor</div>
         <div class="t-course">B.Sc. Thesis</div>
         <div class="t-years">2021 – 2025</div>
+        <div class="t-desc">Individual supervision of bachelor students through their final research project, guiding topic scoping, methodology, literature review, and academic writing in econometrics or operations research.</div>
       </div>
       <div class="t-card reveal">
+        <span class="t-indicator">+</span>
         <div class="t-role">Co-reader</div>
         <div class="t-course">M.Sc. Thesis</div>
         <div class="t-years">2024 – 2025</div>
+        <div class="t-desc">Assessment of master's theses as secondary reader, providing independent evaluation of research quality, methodological rigour, and academic writing in econometrics or operations research.</div>
       </div>
       <div class="t-card reveal">
+        <span class="t-indicator">+</span>
         <div class="t-role">Teaching Assistant</div>
         <div class="t-course">Combinatorial Optimisation</div>
         <div class="t-years">2021 – 2025</div>
+        <div class="t-desc">Theory and algorithms for finding optimal solutions over finite but large feasible sets. Topics include branch-and-bound, Lagrangean relaxation, maximum flow algorithms, and dynamic programming, with emphasis on exploiting problem structure for computational efficiency.</div>
       </div>
       <div class="t-card reveal">
+        <span class="t-indicator">+</span>
         <div class="t-role">Teaching Assistant</div>
         <div class="t-course">Databases</div>
         <div class="t-years">2025</div>
+        <div class="t-desc">Introduction to database management systems and the relational model. Topics include entity-relationship modelling, SQL for data definition and querying, transaction management, and database design, with exercises grounded in economic and business applications.</div>
       </div>
       <div class="t-card reveal">
+        <span class="t-indicator">+</span>
         <div class="t-role">Teaching Assistant</div>
         <div class="t-course">Programming (2)</div>
         <div class="t-years">2022 – 2024</div>
+        <div class="t-desc">Second programming course in the econometrics curriculum, focusing on object-oriented programming in Java. Topics include classes, interfaces, inheritance, collections, and algorithmic problem solving, practised through hands-on assignments in IntelliJ IDEA.</div>
       </div>
       <div class="t-card reveal">
+        <span class="t-indicator">+</span>
         <div class="t-role">Teaching Assistant</div>
         <div class="t-course">Management Science 1 — Optimisation</div>
         <div class="t-years">2022</div>
+        <div class="t-desc">Introduction to linear programming: problem formulation, the simplex method, duality theory, and sensitivity analysis. Applies mathematical optimisation to decision-making problems in economics, logistics, and operations management.</div>
       </div>
       <div class="t-card reveal">
+        <span class="t-indicator">+</span>
         <div class="t-role">Teaching Assistant</div>
         <div class="t-course">Management Science 2 — Optimisation</div>
         <div class="t-years">2022</div>
+        <div class="t-desc">Extension of Management Science 1 into integer and network programming. Covers branch-and-bound for integer linear programmes, network flow models, and shortest-path algorithms, with applications in scheduling and logistics.</div>
       </div>
       <div class="t-card reveal">
+        <span class="t-indicator">+</span>
         <div class="t-role">Teaching Assistant</div>
         <div class="t-course">Quantitative Methods for Logistics</div>
         <div class="t-years">2022</div>
+        <div class="t-desc">Application of quantitative methods to logistics and supply chain problems. Topics include deterministic and stochastic inventory models, vehicle routing, facility location, and supply chain planning using mathematical modelling and optimisation techniques.</div>
       </div>
     </div>
   </section>
@@ -819,7 +867,7 @@
           <div>
             <div class="lang-name">English</div>
             <div class="lang-level">Full Professional Proficiency</div>
-            <div class="lang-bar"><div class="lang-fill" style="width:95%"></div></div>
+            <div class="lang-bar"><div class="lang-fill" style="width:80%"></div></div>
           </div>
         </div>
         <div class="lang-item">
@@ -912,6 +960,14 @@
       });
     }, { threshold: 0.3 });
     document.querySelectorAll('.skills-grid > div').forEach(el => barObserver.observe(el));
+
+    // Teaching card expand/collapse
+    document.querySelectorAll('.t-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const isOpen = card.classList.toggle('open');
+        card.querySelector('.t-desc').classList.toggle('open', isOpen);
+      });
+    });
   </script>
 </body>
 </html>
