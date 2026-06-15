@@ -12,11 +12,9 @@
     :root {
       --navy:     #0d1b2a;
       --navy-mid: #1a2e42;
-      --navy-lt:  #243b55;
       --amber:    #c8963e;
       --amber-lt: #e8b96a;
       --cream:    #f4ede0;
-      --cream-dk: #e8dece;
       --text:     #d8cfc4;
       --muted:    #8a9bb0;
       --white:    #faf7f2;
@@ -33,7 +31,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NOISE TEXTURE ── */
     body::before {
       content: '';
       position: fixed;
@@ -81,11 +78,9 @@
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       align-items: center;
       padding: 0 4rem;
-      gap: 4rem;
       position: relative;
       overflow: hidden;
     }
@@ -109,7 +104,12 @@
       background-size: 60px 60px;
       pointer-events: none;
     }
-    .hero-left { position: relative; z-index: 2; animation: fadeUp 1s ease both; }
+    .hero-left {
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 1s ease both;
+      max-width: 600px;
+    }
     .hero-eyebrow {
       font-family: 'DM Mono', monospace;
       font-size: 0.72rem;
@@ -143,7 +143,7 @@
     .hero-desc {
       font-size: 0.97rem;
       color: var(--muted);
-      max-width: 420px;
+      max-width: 480px;
       margin-bottom: 2.4rem;
       line-height: 1.8;
     }
@@ -177,37 +177,6 @@
     }
     .btn-ghost:hover { border-color: var(--amber); background: rgba(200,150,62,0.08); transform: translateY(-2px); }
 
-    .hero-right {
-      position: relative;
-      z-index: 2;
-      animation: fadeUp 1s 0.2s ease both;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-    .stat-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(200,150,62,0.12);
-      border-radius: 4px;
-      padding: 1.4rem 1.8rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: border-color 0.25s, background 0.25s;
-    }
-    .stat-card:hover {
-      border-color: rgba(200,150,62,0.35);
-      background: rgba(200,150,62,0.04);
-    }
-    .stat-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.06em; }
-    .stat-val {
-      font-family: 'Cormorant Garant', serif;
-      font-size: 2rem;
-      font-weight: 300;
-      color: var(--amber-lt);
-    }
-    .stat-sub { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
-
     /* ── SECTION COMMON ── */
     section { padding: 6rem 4rem; position: relative; }
     .section-label {
@@ -233,48 +202,11 @@
       margin: 0.8rem 0 3rem;
     }
 
-    /* ── ABOUT ── */
-    #about {
+    /* ── RESEARCH ── */
+    #research {
       background: var(--navy-mid);
       border-top: 1px solid rgba(200,150,62,0.1);
     }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 5rem;
-      align-items: start;
-    }
-    .about-left { }
-    .about-right p {
-      font-size: 1.0rem;
-      color: var(--text);
-      margin-bottom: 1.2rem;
-      line-height: 1.85;
-    }
-    .interests-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 2rem;
-    }
-    .tag {
-      padding: 0.35rem 0.9rem;
-      border: 1px solid rgba(200,150,62,0.25);
-      border-radius: 2px;
-      font-size: 0.74rem;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      transition: all 0.2s;
-    }
-    .tag:hover { border-color: var(--amber); color: var(--amber-lt); }
-    .contact-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.8rem; }
-    .contact-item { display: flex; align-items: center; gap: 0.8rem; font-size: 0.85rem; color: var(--muted); }
-    .contact-item a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .contact-item a:hover { color: var(--amber); }
-    .contact-icon { color: var(--amber); font-size: 0.9rem; width: 1.2rem; text-align: center; }
-
-    /* ── RESEARCH ── */
-    #research { }
     .pub-list { display: flex; flex-direction: column; gap: 1.8rem; }
     .pub-item {
       padding: 2rem 2.2rem;
@@ -308,145 +240,6 @@
     }
     .pub-authors { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.4rem; }
     .pub-venue { font-size: 0.8rem; color: var(--amber-lt); font-style: italic; }
-
-    /* ── EDUCATION / EXPERIENCE TIMELINE ── */
-    #education { background: var(--navy-mid); border-top: 1px solid rgba(200,150,62,0.1); }
-    .timeline { position: relative; padding-left: 2.4rem; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0.5rem;
-      top: 0.5rem;
-      bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--amber), transparent);
-    }
-    .tl-item {
-      position: relative;
-      margin-bottom: 2.8rem;
-      animation: fadeUp 0.7s ease both;
-    }
-    .tl-item::before {
-      content: '';
-      position: absolute;
-      left: -2.4rem;
-      top: 0.45rem;
-      width: 0.65rem;
-      height: 0.65rem;
-      border-radius: 50%;
-      border: 2px solid var(--amber);
-      background: var(--navy);
-    }
-    .tl-date {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--amber);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.4rem;
-    }
-    .tl-title {
-      font-family: 'Cormorant Garant', serif;
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: var(--white);
-    }
-    .tl-sub { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
-    .tl-body { font-size: 0.88rem; color: var(--text); margin-top: 0.6rem; line-height: 1.7; }
-    .tl-body ul { padding-left: 1.2rem; }
-    .tl-body li { margin-bottom: 0.25rem; }
-
-    /* ── TEACHING ── */
-    #teaching { }
-    .teaching-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.2rem;
-    }
-    .t-card {
-      padding: 1.5rem 1.8rem;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 4px;
-      background: rgba(255,255,255,0.02);
-      transition: all 0.25s;
-      cursor: pointer;
-      position: relative;
-    }
-    .t-card:hover { border-color: rgba(200,150,62,0.3); background: rgba(200,150,62,0.04); }
-    .t-role { font-size: 0.72rem; color: var(--amber); letter-spacing: 0.1em; text-transform: uppercase; font-family: 'DM Mono', monospace; margin-bottom: 0.5rem; }
-    .t-course { font-family: 'Cormorant Garant', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 0.3rem; }
-    .t-years { font-size: 0.78rem; color: var(--muted); }
-    .t-desc {
-      font-size: 0.82rem;
-      color: var(--text);
-      line-height: 1.7;
-      margin-top: 0.8rem;
-      padding-top: 0.8rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      display: none;
-    }
-    .t-desc.open { display: block; }
-    .t-indicator {
-      position: absolute;
-      top: 1.1rem;
-      right: 1.4rem;
-      color: var(--amber);
-      font-size: 1.1rem;
-      line-height: 1;
-      transition: transform 0.25s;
-      pointer-events: none;
-    }
-    .t-card.open .t-indicator { transform: rotate(45deg); }
-
-    /* ── CONFERENCES ── */
-    #conferences { background: var(--navy-mid); border-top: 1px solid rgba(200,150,62,0.1); }
-    .conf-year-group { margin-bottom: 2.5rem; }
-    .conf-year {
-      font-family: 'Cormorant Garant', serif;
-      font-size: 1.8rem;
-      font-weight: 300;
-      color: var(--amber);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .conf-year::after { content: ''; flex: 1; height: 1px; background: rgba(200,150,62,0.15); }
-    .conf-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.7rem; }
-    .conf-item {
-      padding: 0.8rem 1.2rem;
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 3px;
-      background: rgba(255,255,255,0.02);
-      transition: all 0.2s;
-    }
-    .conf-item:hover { border-color: rgba(200,150,62,0.25); background: rgba(200,150,62,0.03); }
-    .conf-name { font-size: 0.87rem; color: var(--text); font-weight: 400; }
-    .conf-loc { font-size: 0.74rem; color: var(--muted); margin-top: 0.1rem; }
-
-    /* ── SKILLS ── */
-    #skills { }
-    .skills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; }
-    .skill-group-title {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 1.2rem;
-    }
-    .lang-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .lang-name { font-size: 0.9rem; color: var(--white); }
-    .lang-level { font-size: 0.75rem; color: var(--muted); }
-    .lang-item > div { width: 100%; }
-    .lang-bar { width: 100%; height: 2px; background: rgba(255,255,255,0.08); border-radius: 2px; margin-top: 0.4rem; overflow: hidden; }
-    .lang-fill { height: 100%; background: linear-gradient(90deg, var(--amber), var(--amber-lt)); border-radius: 2px; transition: width 1.5s ease; }
 
     /* ── FOOTER ── */
     footer {
@@ -486,11 +279,8 @@
     @media (max-width: 900px) {
       nav { padding: 1rem 2rem; }
       nav ul { display: none; }
-      #hero { grid-template-columns: 1fr; padding: 8rem 2rem 4rem; }
-      .hero-right { display: none; }
+      #hero { padding: 8rem 2rem 4rem; }
       section { padding: 4rem 2rem; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .skills-grid { grid-template-columns: 1fr; gap: 2rem; }
       footer { padding: 2rem; flex-direction: column; text-align: center; }
     }
   </style>
@@ -501,12 +291,7 @@
   <nav>
     <div class="logo">P<span>.</span>J<span>.</span> Correia Duarte</div>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#teaching">Teaching</a></li>
-      <li><a href="#conferences">Conferences</a></li>
-      <li><a href="#skills">Skills</a></li>
+      <li><a href="#research">Papers</a></li>
     </ul>
   </nav>
 
@@ -527,99 +312,12 @@
         <a href="https://github.com/pedrojcd" target="_blank" class="btn btn-ghost">GitHub ↗</a>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="stat-card">
-        <div>
-          <div class="stat-label">Affiliation</div>
-          <div class="stat-sub">Erasmus Center for Optimization<br/>of Public Transports</div>
-        </div>
-        <div class="stat-val">EUR</div>
-      </div>
-      <div class="stat-card">
-        <div>
-          <div class="stat-label">Publications</div>
-          <div class="stat-sub">Journal & Conference · 2 working papers</div>
-        </div>
-        <div class="stat-val">2</div>
-      </div>
-      <div class="stat-card">
-        <div>
-          <div class="stat-label">Teaching Experience</div>
-          <div class="stat-sub">Courses at Erasmus University Rotterdam</div>
-        </div>
-        <div class="stat-val">10+</div>
-      </div>
-      <div class="stat-card">
-        <div>
-          <div class="stat-label">Conferences Presented</div>
-          <div class="stat-sub">EURO, ATMOS, TSL, TRISTAN &amp; more</div>
-        </div>
-        <div class="stat-val">11</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-grid">
-      <div class="about-left reveal">
-        <div class="section-label">Background</div>
-        <h2 class="section-title">About<br/><em style="font-family:'Cormorant Garant',serif;font-style:italic;color:var(--amber-lt);">Me</em></h2>
-        <div class="divider"></div>
-        <div class="contact-list">
-          <div class="contact-item">
-            <span class="contact-icon">✉</span>
-            <a href="mailto:pedrojosecorreiaduarte@gmail.com">pedrojosecorreiaduarte@gmail.com</a>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">📍</span>
-            <span>Rotterdam, the Netherlands</span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">in</span>
-            <a href="https://www.linkedin.com/in/pjcorreiaduarte" target="_blank">pjcorreiaduarte</a>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">⌥</span>
-            <a href="https://github.com/pedrojcd" target="_blank">github.com/pedrojcd</a>
-          </div>
-        </div>
-      </div>
-      <div class="about-right reveal" style="animation-delay:0.1s">
-        <p>
-          I am a researcher in Operations Research and Combinatorial Optimisation, with a Ph.D. from
-          Erasmus University Rotterdam. My doctoral work focused on algorithms for railway timetabling —
-          developing and analysing solution methods for large-scale, real-world scheduling problems in
-          collaboration with Nederlandse Spoorwegen (Dutch Railways).
-        </p>
-        <p>
-          During my Ph.D. I spent a research visit at ETH Zurich's Institute for Transport Planning
-          and Systems, where I worked on infrastructure upgrade planning under budget constraints.
-          I hold a M.Sc. in Business Research (specialisation OR) and a B.Sc. in Econometrics &amp;
-          Operations Research from Maastricht University.
-        </p>
-        <p>
-          Beyond research I am interested in the intersection of algorithmic decision-making and
-          real-world impact, whether in public transport, quantitative finance, or AI governance.
-        </p>
-        <div class="interests-list">
-          <span class="tag">Integer Linear Programming</span>
-          <span class="tag">Heuristics &amp; Metaheuristics</span>
-          <span class="tag">Railway Scheduling</span>
-          <span class="tag">Line Planning</span>
-          <span class="tag">Genetic Algorithms</span>
-          <span class="tag">Large-Scale Optimisation</span>
-          <span class="tag">Network Infrastructure</span>
-          <span class="tag">Local Search</span>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- RESEARCH -->
   <section id="research">
     <div class="section-label reveal">Publications &amp; Working Papers</div>
-    <h2 class="section-title reveal">Research</h2>
+    <h2 class="section-title reveal">Papers</h2>
     <div class="divider reveal"></div>
 
     <div class="pub-list">
@@ -653,276 +351,6 @@
     </div>
   </section>
 
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-label reveal">Academic Formation</div>
-    <h2 class="section-title reveal">Education &amp; <em style="font-family:'Cormorant Garant',serif;font-style:italic;">Experience</em></h2>
-    <div class="divider reveal"></div>
-
-    <div class="skill-group-title reveal" style="margin-bottom:1.8rem">Education</div>
-    <div class="timeline">
-      <div class="tl-item reveal">
-        <div class="tl-date">Sept 2021 – Jan 2026</div>
-        <div class="tl-title">Ph.D. Logistics &amp; Information Systems</div>
-        <div class="tl-sub">Erasmus University Rotterdam · Rotterdam, the Netherlands</div>
-        <div class="tl-body">
-          Topic: <em>Algorithms for Railway Timetabling</em><br/>
-          Supervisors: Prof. Dr. Dennis Huisman, Prof. Dr. Marie Schmidt, Dr. Luuk Veelenturf<br/>
-          Affiliations: Erasmus Center for Optimization of Public Transports · Nederlandse Spoorwegen
-        </div>
-      </div>
-
-      <div class="tl-item reveal">
-        <div class="tl-date">Sept 2019 – July 2021</div>
-        <div class="tl-title">M.Sc. Business Research — Operations Research</div>
-        <div class="tl-sub">Maastricht University · Maastricht, the Netherlands</div>
-        <div class="tl-body">2-year research master with primary focus on Operations Research.</div>
-      </div>
-
-      <div class="tl-item reveal">
-        <div class="tl-date">Sept 2016 – July 2019</div>
-        <div class="tl-title">B.Sc. Econometrics &amp; Operations Research (MaRBLE)</div>
-        <div class="tl-sub">Maastricht University · Maastricht, the Netherlands</div>
-        <div class="tl-body">
-          MaRBLE accreditation: recognition of outstanding thesis quality by the School of Business and Economics.
-        </div>
-      </div>
-
-      <div class="tl-item reveal">
-        <div class="tl-date">2018</div>
-        <div class="tl-title">Study Abroad — Economics</div>
-        <div class="tl-sub">Nanyang Technological University · Singapore</div>
-      </div>
-    </div>
-
-    <div class="skill-group-title reveal" style="margin-top:4rem;margin-bottom:1.8rem">Experience</div>
-    <div class="timeline">
-      <div class="tl-item reveal">
-        <div class="tl-date">Sept – Dec 2024</div>
-        <div class="tl-title">Visiting Researcher</div>
-        <div class="tl-sub">ETH Zurich · Institute for Transport Planning and Systems · Zurich, Switzerland</div>
-        <div class="tl-body">
-          Supervisor: Prof. Dr. Francesco Corman
-        </div>
-      </div>
-
-      <div class="tl-item reveal">
-        <div class="tl-date">2020 – 2021</div>
-        <div class="tl-title">Research Assistant</div>
-        <div class="tl-sub">Maastricht University — School of Business &amp; Economics</div>
-        <div class="tl-body">
-          Research on Choice Design Theory and application of Simulated Annealing to locally optimal solution search. With Prof. Dr. Tom Van Der Zanden and Prof. Dr. Roselinde Kessels.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEACHING -->
-  <section id="teaching">
-    <div class="section-label reveal">Erasmus University Rotterdam</div>
-    <h2 class="section-title reveal">Teaching</h2>
-    <div class="divider reveal"></div>
-
-    <div class="teaching-grid">
-      <div class="t-card reveal">
-        <span class="t-indicator">+</span>
-        <div class="t-role">Coordinator</div>
-        <div class="t-course">Advanced Programming</div>
-        <div class="t-years">2025</div>
-        <div class="t-desc">Advanced object-oriented and functional programming in Java, building on introductory fundamentals. Covers interfaces, abstract classes, inheritance, generics, and modern language features. Students develop practical skills through weekly assignments graded via automated feedback.</div>
-      </div>
-      <div class="t-card reveal">
-        <span class="t-indicator">+</span>
-        <div class="t-role">Supervisor</div>
-        <div class="t-course">Seminar: Case Studies in Logistics</div>
-        <div class="t-years">2021 – 2025</div>
-        <div class="t-desc">Team-based seminar in which student groups tackle a complex real-world logistics problem presented by an external company. Applies operations research techniques — such as vehicle routing, public transit planning, or inventory control — to a new industrial case each year.</div>
-      </div>
-      <div class="t-card reveal">
-        <span class="t-indicator">+</span>
-        <div class="t-role">Supervisor</div>
-        <div class="t-course">B.Sc. Thesis</div>
-        <div class="t-years">2021 – 2025</div>
-        <div class="t-desc">Individual supervision of bachelor students through their final research project, guiding topic scoping, methodology, literature review, and academic writing in econometrics or operations research.</div>
-      </div>
-      <div class="t-card reveal">
-        <span class="t-indicator">+</span>
-        <div class="t-role">Co-reader</div>
-        <div class="t-course">M.Sc. Thesis</div>
-        <div class="t-years">2024 – 2025</div>
-        <div class="t-desc">Assessment of master's theses as secondary reader, providing independent evaluation of research quality, methodological rigour, and academic writing in econometrics or operations research.</div>
-      </div>
-      <div class="t-card reveal">
-        <span class="t-indicator">+</span>
-        <div class="t-role">Teaching Assistant</div>
-        <div class="t-course">Combinatorial Optimisation</div>
-        <div class="t-years">2021 – 2025</div>
-        <div class="t-desc">Theory and algorithms for finding optimal solutions over finite but large feasible sets. Topics include branch-and-bound, Lagrangean relaxation, maximum flow algorithms, and dynamic programming, with emphasis on exploiting problem structure for computational efficiency.</div>
-      </div>
-      <div class="t-card reveal">
-        <span class="t-indicator">+</span>
-        <div class="t-role">Teaching Assistant</div>
-        <div class="t-course">Databases</div>
-        <div class="t-years">2025</div>
-        <div class="t-desc">Introduction to database management systems and the relational model. Topics include entity-relationship modelling, SQL for data definition and querying, transaction management, and database design, with exercises grounded in economic and business applications.</div>
-      </div>
-      <div class="t-card reveal">
-        <span class="t-indicator">+</span>
-        <div class="t-role">Teaching Assistant</div>
-        <div class="t-course">Programming (2)</div>
-        <div class="t-years">2022 – 2024</div>
-        <div class="t-desc">Second programming course in the econometrics curriculum, focusing on object-oriented programming in Java. Topics include classes, interfaces, inheritance, collections, and algorithmic problem solving, practised through hands-on assignments in IntelliJ IDEA.</div>
-      </div>
-      <div class="t-card reveal">
-        <span class="t-indicator">+</span>
-        <div class="t-role">Teaching Assistant</div>
-        <div class="t-course">Management Science 1 — Optimisation</div>
-        <div class="t-years">2022</div>
-        <div class="t-desc">Introduction to linear programming: problem formulation, the simplex method, duality theory, and sensitivity analysis. Applies mathematical optimisation to decision-making problems in economics, logistics, and operations management.</div>
-      </div>
-      <div class="t-card reveal">
-        <span class="t-indicator">+</span>
-        <div class="t-role">Teaching Assistant</div>
-        <div class="t-course">Management Science 2 — Optimisation</div>
-        <div class="t-years">2022</div>
-        <div class="t-desc">Extension of Management Science 1 into integer and network programming. Covers branch-and-bound for integer linear programmes, network flow models, and shortest-path algorithms, with applications in scheduling and logistics.</div>
-      </div>
-      <div class="t-card reveal">
-        <span class="t-indicator">+</span>
-        <div class="t-role">Teaching Assistant</div>
-        <div class="t-course">Quantitative Methods for Logistics</div>
-        <div class="t-years">2022</div>
-        <div class="t-desc">Application of quantitative methods to logistics and supply chain problems. Topics include deterministic and stochastic inventory models, vehicle routing, facility location, and supply chain planning using mathematical modelling and optimisation techniques.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONFERENCES -->
-  <section id="conferences">
-    <div class="section-label reveal">Presentations &amp; Seminars</div>
-    <h2 class="section-title reveal">Conferences</h2>
-    <div class="divider reveal"></div>
-
-    <div class="conf-year-group reveal">
-      <div class="conf-year">2025</div>
-      <div class="conf-list">
-        <div class="conf-item"><div class="conf-name">Econometrics Institute OR Seminars</div><div class="conf-loc">Rotterdam, the Netherlands</div></div>
-        <div class="conf-item"><div class="conf-name">TRISTAN XII</div><div class="conf-loc">Okinawa, Japan</div></div>
-        <div class="conf-item"><div class="conf-name">Flywire Fall 2025 Symposium</div><div class="conf-loc">Princeton, U.S.A.</div></div>
-      </div>
-    </div>
-
-    <div class="conf-year-group reveal">
-      <div class="conf-year">2024</div>
-      <div class="conf-list">
-        <div class="conf-item"><div class="conf-name">49th Conference on the Mathematics of OR</div><div class="conf-loc">Soesterberg, the Netherlands</div></div>
-        <div class="conf-item"><div class="conf-name">EURO 2024</div><div class="conf-loc">Copenhagen, Denmark</div></div>
-        <div class="conf-item"><div class="conf-name">ETH Zurich ITP&S Seminar</div><div class="conf-loc">Zurich, Switzerland</div></div>
-      </div>
-    </div>
-
-    <div class="conf-year-group reveal">
-      <div class="conf-year">2023</div>
-      <div class="conf-list">
-        <div class="conf-item"><div class="conf-name">Econometrics Institute PhD Conference</div><div class="conf-loc">Rotterdam, the Netherlands</div></div>
-        <div class="conf-item"><div class="conf-name">TSL 2023</div><div class="conf-loc">Chicago, U.S.A.</div></div>
-        <div class="conf-item"><div class="conf-name">ATMOS 2023</div><div class="conf-loc">Amsterdam, the Netherlands</div></div>
-      </div>
-    </div>
-
-    <div class="conf-year-group reveal">
-      <div class="conf-year">2022</div>
-      <div class="conf-list">
-        <div class="conf-item"><div class="conf-name">ESE PhD Lunch Seminars</div><div class="conf-loc">Rotterdam, the Netherlands</div></div>
-        <div class="conf-item"><div class="conf-name">EURO 2022</div><div class="conf-loc">Espoo, Finland</div></div>
-        <div class="conf-item"><div class="conf-name">CASPT 2022</div><div class="conf-loc">Tel Aviv, Israel</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label reveal">Competencies</div>
-    <h2 class="section-title reveal">Skills &amp; <em style="font-family:'Cormorant Garant',serif;font-style:italic;">Languages</em></h2>
-    <div class="divider reveal"></div>
-
-    <div class="skills-grid">
-      <div class="reveal">
-        <div class="skill-group-title">Languages</div>
-        <div class="lang-item">
-          <div>
-            <div class="lang-name">French</div>
-            <div class="lang-level">Native</div>
-            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
-          </div>
-        </div>
-        <div class="lang-item">
-          <div>
-            <div class="lang-name">Portuguese</div>
-            <div class="lang-level">Native</div>
-            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
-          </div>
-        </div>
-        <div class="lang-item">
-          <div>
-            <div class="lang-name">English</div>
-            <div class="lang-level">Full Professional Proficiency</div>
-            <div class="lang-bar"><div class="lang-fill" style="width:80%"></div></div>
-          </div>
-        </div>
-        <div class="lang-item">
-          <div>
-            <div class="lang-name">Dutch</div>
-            <div class="lang-level">Limited Professional (B1)</div>
-            <div class="lang-bar"><div class="lang-fill" style="width:50%"></div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal" style="animation-delay:0.1s">
-        <div class="skill-group-title">Research &amp; Optimisation</div>
-        <div class="lang-item"><div class="lang-name">Integer Linear Programming</div></div>
-        <div class="lang-item"><div class="lang-name">Heuristics &amp; Metaheuristics</div></div>
-        <div class="lang-item"><div class="lang-name">Genetic Algorithms</div></div>
-        <div class="lang-item"><div class="lang-name">Local Search Methods</div></div>
-        <div class="lang-item"><div class="lang-name">Large-Scale Real-World Optimisation</div></div>
-        <div class="lang-item"><div class="lang-name">Railway Timetabling &amp; Line Planning</div></div>
-      </div>
-
-      <div class="reveal" style="animation-delay:0.2s">
-        <div class="skill-group-title">Standardised Tests &amp; Other</div>
-        <div class="lang-item">
-          <div>
-            <div class="lang-name">GMAT</div>
-            <div class="lang-level">690 · 85th percentile</div>
-            <div class="lang-bar"><div class="lang-fill" style="width:85%"></div></div>
-          </div>
-        </div>
-        <div style="margin-top:2rem">
-          <div class="skill-group-title">References</div>
-          <div class="lang-item">
-            <div>
-              <div class="lang-name">Prof. Dr. Dennis Huisman</div>
-              <div class="lang-level">Full Professor, Erasmus University Rotterdam</div>
-            </div>
-          </div>
-          <div class="lang-item">
-            <div>
-              <div class="lang-name">Prof. Dr. Marie Schmidt</div>
-              <div class="lang-level">Professor, University of Würzburg</div>
-            </div>
-          </div>
-          <div class="lang-item">
-            <div>
-              <div class="lang-name">Dr. Luuk Veelenturf</div>
-              <div class="lang-level">Assistant Professor, Erasmus University Rotterdam</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer>
     <div class="logo">Pedro José <span>Correia Duarte</span></div>
@@ -935,38 +363,14 @@
   </footer>
 
   <script>
-    // Scroll-triggered reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Nav shrink on scroll
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       nav.style.padding = window.scrollY > 60 ? '0.9rem 4rem' : '1.4rem 4rem';
-    });
-
-    // Animate language bars on reveal
-    const barObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('.lang-fill').forEach(bar => {
-            const w = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => { bar.style.width = w; }, 200);
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.skills-grid > div').forEach(el => barObserver.observe(el));
-
-    // Teaching card expand/collapse
-    document.querySelectorAll('.t-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const isOpen = card.classList.toggle('open');
-        card.querySelector('.t-desc').classList.toggle('open', isOpen);
-      });
     });
   </script>
 </body>
